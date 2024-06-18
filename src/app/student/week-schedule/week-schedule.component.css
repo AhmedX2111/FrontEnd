@@ -1,0 +1,79 @@
+/* calendar.component.css */
+
+.container {
+    margin: 20px auto;
+    max-width: 800px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .calendar {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    width: 90%;
+    margin: auto;
+    background-color: #f9f9f9; /* Light gray background color */
+  }
+  
+  .time-slots {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100px;
+  }
+  
+  .time-slot {
+    padding: 8px;
+    text-align: center;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+    color: #555;
+    margin-bottom: 5px; /* Add margin between time slots */
+    border-radius: 5px; /* Add border radius to time slots */
+  }
+  
+  .schedule {
+    flex-grow: 1;
+    padding: 10px; /* Add padding to the schedule */
+  }
+  
+  .day {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff; /* White background color for each day */
+    padding: 10px; /* Add padding to each day */
+    border-radius: 5px; /* Add border radius to each day */
+    margin-right: 10px; /* Add margin between days */
+  }
+  
+  .day-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .lectures {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .lecture {
+    background-color: #a42121;
+    padding: 8px;
+    color: white;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .lecture-time {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  

@@ -1,0 +1,51 @@
+<section id="count-down-part" class="bg_cover pt-70 pb-120" data-overlay="8"
+    style="background-image: url(../../../assets/images/bg-2.jpg)">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+
+            <div class="col-lg-5 offset-lg-1 col-md-8">
+                <div class="category-form category-form-3 pt-50">
+                    <div class="form-title text-center">
+                        <i style="font-size: x-large;" class="fa-solid fa-graduation-cap"></i>
+                        <h3>Student Login</h3>
+                    </div>
+
+                    <div class="main-form">
+                        <form [formGroup]="loginForm">
+                           
+                            <input formControlName="username" type="email" id="form2Example11" class="form-control mb-3"
+                                placeholder="User Name" />
+                                <small
+                                *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required','username')"
+                                class="text-danger">Username is required</small>
+                         
+
+                            <small
+                                *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"
+                                class="text-danger">password is required</small>
+                            <input formControlName="password" type="password" placeholder="Password" id="form2Example22"
+                                class="form-control" />
+              
+
+                            <div class="text-center">
+                                <app-spinner *ngIf="loading"></app-spinner>
+                            </div>
+                            <div class="singel-form">
+                                <a (click)="Onlogin()" class="main-btn" type="button">Login</a>
+                            </div>
+                            <div class="singel-form">
+                                <a  routerLink="../doctor" class="main-btn"> <i class="fa-solid fa-user-tie"></i> Doctor</a>
+                            </div>
+                            
+                            <div class="singel-form">
+                                <p class="text-center">Don't have an account? <a routerLink="./register">Register
+                                        here</a></p>
+                            </div>
+                        </form>
+
+                    </div>
+                </div> <!-- category form -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>

@@ -1,0 +1,26 @@
+<div class="course-dropdown-container">
+    <label for="course-dropdown">Select a course:</label>
+    <select id="course-dropdown" [(ngModel)]="selectedCourseId" (change)="onCourseSelect()" class="form-select">
+      <option value="">-- Select a course --</option>
+      <option *ngFor="let course of courses" [value]="course.id">{{ course.courseName }}</option>
+    </select>
+  </div>
+  
+  <div *ngIf="uploads.length > 0" class="uploads-container">
+    <h2 class="uploads-heading">Uploads for Selected Course</h2>
+    <table class="uploads-table">
+      <thead>
+        <tr>
+          <th>Upload Name</th>
+          <th>File URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let upload of uploads">
+          <td>{{ upload.uploadName }}</td>
+          <td><a [href]="upload.fileUrl" target="_blank">{{ upload.fileUrl }}</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
