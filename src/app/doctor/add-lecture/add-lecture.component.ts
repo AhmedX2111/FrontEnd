@@ -10,7 +10,7 @@ import { ScheduleService } from '../services/schedule.service';
 export class AddLectureComponent {
   weekDays: string[] = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
   lecturesData: { [key: string]: Lecture[] } = {};
-  newLecture: Lecture = { id: 0, title: '', time: '', dayScheduleId: 0 }; // Add a newLecture object
+  newLecture: Lecture = { id: 0, title: '', time: '', dayScheduleId: 0 , doctorId : localStorage.getItem("user_Id") !== null ? +localStorage.getItem("user_Id")! : 0}; // Add a newLecture object
 
   constructor(private scheduleService: ScheduleService) { }
 
@@ -57,6 +57,7 @@ export interface Lecture {
   title: string;
   time: string;
   dayScheduleId: number;
+  doctorId? : number;
 }
 export interface DaySchedule {
   day: string;

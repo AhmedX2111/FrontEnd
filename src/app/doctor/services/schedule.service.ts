@@ -12,7 +12,7 @@ export class ScheduleService {
   constructor(private http: HttpClient) { }
 
   getSchedules(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+    return this.http.get<any>(`${this.apiUrl}?id=${localStorage.getItem("user_Id")}`);
   }
   addLecture(lecture: Lecture): Observable<Lecture> {
     return this.http.post<Lecture>(`${this.apiUrl}/addLecture`, lecture);
