@@ -1,0 +1,61 @@
+<div id="calculator">
+  <span id="creditError" class="error"></span>
+  <span id="inputError" class="error"></span>
+  <br />
+  <h2>CGPA Calculator</h2>
+  <form #cgpaForm="ngForm" (ngSubmit)="addSubject()">
+    <label for="subject">Subject:</label>
+    <input
+      type="text"
+      id="subject"
+      name="subject"
+      required
+      [(ngModel)]="subjectInput"
+    />
+    <label for="grade">Grade:</label>
+    <select id="grade" name="grade" [(ngModel)]="gradeInput">
+      <option *ngFor="let grade of grades" [value]="grade.value">
+        {{ grade.label }}
+      </option>
+    </select>
+    <label for="credit">Credit:</label>
+    <input
+      type="number"
+      id="credit"
+      name="credit"
+      min="1"
+      max="20"
+      required
+      [(ngModel)]="creditInput"
+    />
+    <button type="submit">
+      {{ editIndex !== -1 ? "Edit" : "Add / Edit" }} Subject
+    </button>
+  </form>
+  <h3>Calculate CGPA</h3>
+  <table id="subjectTable">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Grade</th>
+        <th>Credit</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let subject of subjects; let i = index">
+        <td>{{ subject.subject }}</td>
+        <td>{{ subject.grade }}</td>
+        <td>{{ subject.credit }}</td>
+        <td>
+          <button (click)="editSubject(i)">Edit</button>
+          <button (click)="deleteSubject(i)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>
+    CGPA: <span id="cgpa">{{ calculateCGPA() }}</span>
+  </h3>
+  <button (click)="resetForm()">Reset</button>
+</div>

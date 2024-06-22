@@ -7,7 +7,7 @@ import { StudentCourseComponent } from './student-course/student-course.componen
 import { MainComponent } from './main/main.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { WeekScheduleComponent } from './week-schedule/week-schedule.component';
-import { GpaComponent } from './gpa-cal/gpa.component';
+import { CGPACalculatorComponent } from './gpa-cal/gpa.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -21,7 +21,7 @@ const routes: Routes = [
       { path: 'main', component: MainComponent },
       { path: 'course-material/:courseId', component: CourseDetailsComponent },
       { path: 'week-schedule', component: WeekScheduleComponent },
-      { path: 'gpa-cal', component: GpaComponent },
+      { path: 'gpa-cal', component: CGPACalculatorComponent },
     ],
   },
 ];

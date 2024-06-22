@@ -18,7 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { WeekScheduleComponent } from './week-schedule/week-schedule.component';
-import { GpaComponent } from './gpa-cal/gpa.component';
+import { CGPACalculatorComponent } from './gpa-cal/gpa.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { GpaComponent } from './gpa-cal/gpa.component';
     MainComponent,
     CourseDetailsComponent,
     WeekScheduleComponent,
-    GpaComponent,
+    CGPACalculatorComponent,
   ],
   imports: [
     CommonModule,

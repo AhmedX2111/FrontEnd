@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GpaComponent } from './gpa.component';
+import { CGPACalculatorComponent } from './gpa.component';
 
-describe('GpaComponent', () => {
-  let component: GpaComponent;
-  let fixture: ComponentFixture<GpaComponent>;
+describe('CGPACalculatorComponent', () => {
+  let component: CGPACalculatorComponent;
+  let fixture: ComponentFixture<CGPACalculatorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GpaComponent],
+      declarations: [CGPACalculatorComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(GpaComponent);
+    fixture = TestBed.createComponent(CGPACalculatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
