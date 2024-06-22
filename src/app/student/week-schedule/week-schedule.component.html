@@ -6,14 +6,15 @@
         <div class="day-header">{{ day }}</div>
         <div class="lectures">
           <div class="lecture" *ngFor="let lecture of lecturesData[day]">
-            <span class="lecture-time">{{ lecture.time }}</span> {{ lecture.title }}
+            <span class="lecture-time">{{ lecture.time }}</span>
+            {{ lecture.title }}
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
- <div class="container">
+<div class="container">
   <h2>Week Schedule Calendar</h2>
   <div class="calendar">
     <div class="schedule">
@@ -21,7 +22,8 @@
         <div class="day-header">{{ day }}</div>
         <div class="lectures">
           <div class="lecture" *ngFor="let lecture of lecturesData[day]">
-            <span class="lecture-time">{{ lecture.time }}</span> {{ lecture.title }}
+            <span class="lecture-time">{{ lecture.time }}</span>
+            {{ lecture.title }}
             <button (click)="deleteLecture(lecture.id)">Delete</button>
             <button (click)="updateLecture(lecture)">Update</button>
           </div>
@@ -30,16 +32,17 @@
     </div>
   </div>
 
-  <h3>Add Lecture</h3>
-  <form (ngSubmit)="addLecture()">
+  <!-- <form (ngSubmit)="addLecture()">
     <label for="day">Day:</label>
     <select [(ngModel)]="newLecture.dayScheduleId" name="day">
-      <option *ngFor="let day of weekDays; let i = index" [value]="i + 1">{{ day }}</option>
+      <option *ngFor="let day of weekDays; let i = index" [value]="i + 1">
+        {{ day }}
+      </option>
     </select>
     <label for="title">Title:</label>
-    <input type="text" [(ngModel)]="newLecture.title" name="title">
+    <input type="text" [(ngModel)]="newLecture.title" name="title" />
     <label for="time">Time:</label>
-    <input type="text" [(ngModel)]="newLecture.time" name="time">
+    <input type="text" [(ngModel)]="newLecture.time" name="time" />
     <button type="submit">Add</button>
-  </form>
-</div> 
+  </form> -->
+</div>

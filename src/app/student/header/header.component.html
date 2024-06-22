@@ -1,115 +1,154 @@
 <header id="header-part">
+  <div class="header-logo-support pt-30 pb-30">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-4">
+          <div class="logo">
+            <a href="http://localhost:4200/student/home/main">
+              <img
+                width="100"
+                height=""
+                src="assets/images/logoo.png"
+                alt="Logo"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-8">
+          <div class="support-button float-right d-none d-md-block">
+            <div *ngIf="LoggedIn()" class="button float-left">
+              <a routerLink="login" class="main-btn">
+                <i class="fa-solid fa-graduation-cap"></i> Student</a
+              >
+            </div>
+            <div *ngIf="LoggedIn()" class="button float-left">
+              <a class="main-btn">
+                <i class="fa-solid fa-user-tie"></i> Doctor</a
+              >
+            </div>
+            <a *ngIf="!LoggedIn()">
+              <a
+                style="margin-right: 10px; cursor: pointer"
+                *ngIf="!LoggedIn()"
+                (click)="LogOut()"
+                ><i class="fa fa-sign-out"></i> <span>Logout</span></a
+              >
 
-    <div class="header-logo-support pt-30 pb-30">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-4">
-            <div class="logo">
-              <a href="index-2.html">
-                <img width="100" height="" src="assets/images/logoo.png" alt="Logo">
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-8 col-md-8">
-            <div class="support-button float-right d-none d-md-block">
-              
-              <div *ngIf="LoggedIn()" class="button float-left">
-                <a routerLink="login" class="main-btn"> <i class="fa-solid fa-graduation-cap"></i> Student</a>
-  
-              </div>
-              <div *ngIf="LoggedIn()" class="button float-left">
-                <a class="main-btn"> <i class="fa-solid fa-user-tie"></i> Doctor</a>
-              </div><a *ngIf="!LoggedIn()">
-                <a  style="margin-right: 10px;cursor: pointer;" *ngIf="!LoggedIn()" (click)="LogOut()"><i class="fa fa-sign-out"></i>
-                  <span>Logout</span></a>
-  
-                <a style="font-weight: bolder"><i class="fa fa-user"></i> {{AccountName}}</a>
-                <div class="support float-right">
-                  <div class="icon">
-                    <img src="assets/images/all-icon/support.png" alt="icon">
-                  </div>
-                  <div class="cont" style="margin-right: 10px;">
-                    <p>Need Help? call us free</p>
-                    <span>321 325 5678</span>
-                  </div>
+              <a style="font-weight: bolder"
+                ><i class="fa fa-user"></i> {{ AccountName }}</a
+              >
+              <div class="support float-right">
+                <div class="icon">
+                  <img src="assets/images/all-icon/support.png" alt="icon" />
                 </div>
-  
-  
-              </a>
-            </div>
-          </div>
-        </div> <!-- row -->
-      </div> <!-- container -->
-    </div> <!-- header logo support -->
-  
-    <div class="navigation">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 col-md-10 col-sm-9 col-8">
-            <nav class="navbar navbar-expand-lg">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-  
-              <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                  <li class="nav-item">
-                    <a routerLink="../home/main" routerLinkActive="active">Home<button class="sub-nav-toggler"> <i
-                          class="fa fa-chevron-down"></i> </button></a>
-                  </li>
-                  <li class="nav-item">
-                    <a routerLink="about" routerLinkActive="active">About us</a>
-                  </li>
-                  <li class="nav-item">
-                    <a routerLink="../home/student-course" routerLinkActive="active">My Courses<button class="sub-nav-toggler"> <i
-                          class="fa fa-chevron-down"></i> </button></a>
-                  </li>
-                  <li class="nav-item">
-                    <a routerLink="events" routerLinkActive="active">Events<button class="sub-nav-toggler"> <i
-                          class="fa fa-chevron-down"></i> </button></a>
-                  </li>
-                  <li class="nav-item">
-                    <a routerLink="../home/week-schedule" routerLinkActive="active">Week Schedule<button class="sub-nav-toggler"> <i
-                          class="fa fa-chevron-down"></i> </button></a>
-  
-                  </li>
-                  <li class="nav-item">
-                    <a routerLink="contact" routerLinkActive="active">Contact<button class="sub-nav-toggler"> <i
-                          class="fa fa-chevron-down"></i> </button></a>
-                  </li>
-                </ul>
+                <div class="cont" style="margin-right: 10px">
+                  <p>Need Help? call us free</p>
+                  <span>321 325 5678</span>
+                </div>
               </div>
-  
-  
-  
-            </nav> <!-- nav -->
+            </a>
           </div>
-          <div class="col-lg-2 col-md-2 col-sm-3 col-4">
-            <div class="right-icon text-right">
-              <ul>
-                <li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
-  
-              </ul>
-            </div> <!-- right icon -->
-          </div>
-        </div> <!-- row -->
-      </div> <!-- container -->
-    </div>
-  
-  </header>
-  
-  <div class="search-box">
-    <div class="serach-form">
-      <div class="closebtn">
-        <span></span>
-        <span></span>
+        </div>
       </div>
-      <form action="#">
-        <input type="text" placeholder="Search by keyword">
-        <button><i class="fa fa-search"></i></button>
-      </form>
-    </div> <!-- serach form -->
+      <!-- row -->
+    </div>
+    <!-- container -->
   </div>
+  <!-- header logo support -->
+
+  <div class="navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-9 col-8">
+          <nav class="navbar navbar-expand-lg">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            <div
+              class="collapse navbar-collapse sub-menu-bar"
+              id="navbarSupportedContent"
+            >
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a routerLink="../home/main" routerLinkActive="active"
+                    >Home<button class="sub-nav-toggler">
+                      <i class="fa fa-chevron-down"></i></button
+                  ></a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="about" routerLinkActive="active">About us</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    routerLink="../home/student-course"
+                    routerLinkActive="active"
+                    >My Courses<button class="sub-nav-toggler">
+                      <i class="fa fa-chevron-down"></i></button
+                  ></a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="events" routerLinkActive="active"
+                    >Events<button class="sub-nav-toggler">
+                      <i class="fa fa-chevron-down"></i></button
+                  ></a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    routerLink="../home/week-schedule"
+                    routerLinkActive="active"
+                    >Week Schedule<button class="sub-nav-toggler">
+                      <i class="fa fa-chevron-down"></i></button
+                  ></a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="contact" routerLinkActive="active"
+                    >Contact<button class="sub-nav-toggler">
+                      <i class="fa fa-chevron-down"></i></button
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <!-- nav -->
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-3 col-4">
+          <div class="right-icon text-right">
+            <ul>
+              <li>
+                <a href="#" id="search"><i class="fa fa-search"></i></a>
+              </li>
+            </ul>
+          </div>
+          <!-- right icon -->
+        </div>
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </div>
+</header>
+
+<div class="search-box">
+  <div class="serach-form">
+    <div class="closebtn">
+      <span></span>
+      <span></span>
+    </div>
+    <form action="#">
+      <input type="text" placeholder="Search by keyword" />
+      <button><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+  <!-- serach form -->
+</div>
