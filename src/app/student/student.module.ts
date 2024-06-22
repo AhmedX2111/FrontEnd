@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { StudentRoutingModule } from './student-routing.module';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component'; 
+import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
@@ -14,11 +14,11 @@ import { MainComponent } from './main/main.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { MatInputModule } from '@angular/material/input';
 
-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { WeekScheduleComponent } from './week-schedule/week-schedule.component';
+import { GpaComponent } from './gpa-cal/gpa.component';
 
 @NgModule({
   declarations: [
@@ -30,19 +30,20 @@ import { WeekScheduleComponent } from './week-schedule/week-schedule.component';
     HomeComponent,
     MainComponent,
     CourseDetailsComponent,
-    WeekScheduleComponent
+    WeekScheduleComponent,
+    GpaComponent,
   ],
   imports: [
     CommonModule,
     StudentRoutingModule,
     FormsModule,
-    HttpClientModule, 
+    HttpClientModule,
     ReactiveFormsModule,
     MatTableModule,
     MatInputModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
   ],
-  exports:[SpinnerComponent]
+  exports: [SpinnerComponent],
 })
-export class StudentModule { }
+export class StudentModule {}
