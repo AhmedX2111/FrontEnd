@@ -8,7 +8,7 @@ declare var $: any; // Include jQuery
 @Component({
   selector: 'app-student-course',
   templateUrl: './student-course.component.html',
-  styleUrls: ['./student-course.component.css']
+  styleUrls: ['./student-course.component.css'],
 })
 export class StudentCourseComponent implements OnInit {
   Courses: any[] = [];
@@ -17,8 +17,8 @@ export class StudentCourseComponent implements OnInit {
   courseCode: string = '';
   serverdown: boolean = false;
   coursename: string = '';
-  courseimage: string = "";
-  constructor(private courseService: CourseService) { }
+  courseimage: string = '';
+  constructor(private courseService: CourseService) {}
 
   ngOnInit(): void {
     this.loading = true;
@@ -68,34 +68,33 @@ export class StudentCourseComponent implements OnInit {
     event.stopPropagation();
   }
 
-  joinCourseWithCode() {
+  async joinCourseWithCode() {
     // Logic for joining the course with entered code
     console.log('Course Code:', this.courseCode);
-    const user_Id = localStorage.getItem("user_Id");
+    const user_Id = localStorage.getItem('user_Id');
     this.courseService.ConfirmCourseByCode(this.courseCode, user_Id).subscribe(
-      next => {
+      (next) => {
         console.log('تم الاشتراك في الكورس');
-        Swal.fire({
-          icon: 'success',
-          title: 'Joined Successfully!',
-          text: 'You have successfully Joind the Course.',
-          imageUrl: '../../../assets/images/logoo.png', // Replace with the path to your image
-          imageWidth: 200, // Adjust image width as needed
-          imageHeight: 200, // Adjust image height as needed
-          imageAlt: 'Success Image'
-        });
-
-        this.loadcourses();
-
       },
-      error => {
-
-        console.log('فشل في الدخول');
-
+      (error) => {
+        console.log(error);
       }
+    );
+    Swal.fire({
+      icon: 'success',
+      title: 'Joined Successfully!',
+      text: 'You have successfully Joind the Course.',
+      imageUrl: '../../../assets/images/logoo.png',
+      imageWidth: 200,
+      imageHeight: 200,
+      imageAlt: 'Success Image',
+    });
 
-    )
-    // Close modal after joining
     this.closeModal();
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 1500);
+    // Close modal after joining
   }
 }
