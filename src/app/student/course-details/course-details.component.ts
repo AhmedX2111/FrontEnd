@@ -6,37 +6,46 @@ import { AlertifyService } from 'src/app/alertify.service';
 @Component({
   selector: 'app-course-details',
   templateUrl: './course-details.component.html',
-  styleUrls: ['./course-details.component.css']
+  styleUrls: ['./course-details.component.css'],
 })
-
 export class CourseDetailsComponent {
-  
-  baseurl = "https://localhost:5001/api/";
-  materials: Material[] = [
-     
- 
-    // Add more materials as needed
-  ];
-  displayedColumns: string[] = [  'courseName', 'uploadName','fileUrl']; // Columns to display in the table
-  courseuploads: any = {};
-  constructor(private http: HttpClient, private route: ActivatedRoute, private alertify: AlertifyService) {
+  baseurl = 'https://localhost:5001/api/';
+  materials: Material[] = [];
+  displayedColumns: string[] = ['id', 'courseName', 'uploadName', 'fileUrl'];
 
-    route.params.subscribe(result => {
-      this.http.get(this.baseurl + "Uploads/GetUploadsByCourseID/" + result["courseId"]).subscribe((result:any) => {
-        console.log(result);
-         this.materials=result;
-      });
-    })
-
+  constructor(
+    private http: HttpClient,
+    private route: ActivatedRoute,
+    private alertify: AlertifyService
+  ) {
+    this.route.params.subscribe((params) => {
+      const courseId = params['courseId'];
+      this.fetchMaterials(courseId);
+    });
   }
 
-  ngOnInit(): void {
+  fetchMaterials(courseId: number) {
+    this.http
+      .get<any[]>(`${this.baseurl}Uploads/GetUploadsByCourseID/${courseId}`)
+      .subscribe(
+        (materials) => {
+          this.materials = materials;
+        },
+        (error) => {
+          console.error('Error fetching materials:', error);
+          this.alertify.error('Failed to retrieve materials.');
+        }
+      );
+  }
+
+  openPDF(url: string) {
+    window.open(url, '_blank'); // Open the PDF file in a new tab
   }
 }
 
 interface Material {
   id: number;
-  uploadName: string; 
+  uploadName: string;
   courseName: string;
   fileUrl: string; // URL of the PDF file
 }
