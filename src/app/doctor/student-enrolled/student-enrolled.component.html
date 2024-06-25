@@ -1,35 +1,51 @@
 <div class="course-dropdown-container">
-    <label for="course-dropdown">Select a course:</label>
-    <select id="course-dropdown" [(ngModel)]="selectedCourseId" (change)="onCourseSelect()" class="form-select">
-      <option value="">-- Select a course --</option>
-      <option *ngFor="let course of courses" [value]="course.id">{{ course.courseName }}</option>
-    </select>
-  </div>
-  
-  <div *ngIf="studentCourses.length > 0" class="uploads-container">
-    <h2 class="uploads-heading">Uploads for Selected Course</h2>
-    <table class="uploads-table">
-      <thead>
-        <tr>
-          <th>Student ID</th>
-          <th>Student Name</th>
-          <th>Course Name</th>
-          <th>Grade</th>
-          <th>Update Grade</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let s of studentCourses">
-          <td>{{ s.studentId }}</td>
-          <td>{{ s.studentName }}</td>
-          <td>{{ s.courseName }}</td>
-          <td>{{ s.grade }}</td>
-          <td>
-            <input type="number" [(ngModel)]="s.newGrade" placeholder="Enter grade" class="form-control">
-            <button (click)="updateGrade(s.studentId, selectedCourseId, s.newGrade)" class="btn btn-primary mt-2">Update</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
+  <label for="course-dropdown">Select a course:</label>
+  <select
+    id="course-dropdown"
+    [(ngModel)]="selectedCourseId"
+    (change)="onCourseSelect()"
+    class="form-select"
+  >
+    <option value="">-- Select a course --</option>
+    <option *ngFor="let course of courses" [value]="course.id">
+      {{ course.courseName }}
+    </option>
+  </select>
+</div>
+
+<div *ngIf="studentCourses.length > 0" class="uploads-container">
+  <h2 class="uploads-heading">Uploads for Selected Course</h2>
+  <table class="uploads-table">
+    <thead>
+      <tr>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Course Name</th>
+        <th>Grade</th>
+        <th>Update Grade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of studentCourses">
+        <td>{{ s.studentId }}</td>
+        <td>{{ s.studentName }}</td>
+        <td>{{ s.courseName }}</td>
+        <td>{{ s.grade }}</td>
+        <td>
+          <input
+            type="number"
+            [(ngModel)]="s.newGrade"
+            placeholder="Enter grade"
+            class="form-control"
+          />
+          <button
+            (click)="updateGrade(s.studentId, selectedCourseId, s.newGrade)"
+            class="btn btn-primary mt-2"
+          >
+            Update
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

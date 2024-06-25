@@ -1,39 +1,37 @@
 <div class="container">
-    <mat-form-field appearance="fill" class="search-input">
-        <input matInput type="text" placeholder="Search">
-        <button mat-button matSuffix>
-            <mat-icon>search</mat-icon></button>
-    </mat-form-field>
+  <table
+    mat-table
+    [dataSource]="materials"
+    class="mat-elevation-z8 custom-table"
+  >
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let material">{{ material.id }}</td>
+    </ng-container>
 
-    <table mat-table [dataSource]="materials" class="mat-elevation-z8 custom-table">
-        <!-- ID Column -->
-        <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef>ID</th>
-            <td mat-cell *matCellDef="let material">{{ material.id }}</td>
-        </ng-container>
+    <!-- Name Column -->
+    <ng-container matColumnDef="courseName">
+      <th mat-header-cell *matHeaderCellDef>Course Name</th>
+      <td mat-cell *matCellDef="let material">{{ material.courseName }}</td>
+    </ng-container>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="courseName">
-            <th mat-header-cell *matHeaderCellDef>Course Name</th>
-            <td mat-cell *matCellDef="let material">{{ material.courseName }}</td>
-        </ng-container>
+    <!-- Description Column -->
+    <ng-container matColumnDef="uploadName">
+      <th mat-header-cell *matHeaderCellDef>Upload Name</th>
+      <td mat-cell *matCellDef="let material">{{ material.uploadName }}</td>
+    </ng-container>
 
-        <!-- Description Column -->
-        <ng-container matColumnDef="uploadName">
-            <th mat-header-cell *matHeaderCellDef>Upload Name</th>
-            <td mat-cell *matCellDef="let material">{{ material.uploadName }}</td>
-        </ng-container>
+    <!-- PDF Link Column -->
+    <ng-container matColumnDef="fileUrl">
+      <th mat-header-cell *matHeaderCellDef>Material</th>
+      <td mat-cell *matCellDef="let material">
+        <a [href]="material.fileUrl" target="_blank">View PDF</a>
+      </td>
+    </ng-container>
 
-        <!-- PDF Link Column -->
-        <ng-container matColumnDef="fileUrl">
-            <th mat-header-cell *matHeaderCellDef>Material</th>
-            <td mat-cell *matCellDef="let material">
-                <a [href]="material.fileUrl" target="_blank">View PDF</a>
-            </td>
-        </ng-container>
-
-        <!-- Define columns to display -->
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+    <!-- Define columns to display -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
 </div>
