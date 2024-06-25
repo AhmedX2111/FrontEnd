@@ -9,30 +9,30 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { StudentCourseComponent } from '../student/student-course/student-course.component';
 import { StudentEnrolledComponent } from './student-enrolled/student-enrolled.component';
 import { AddLectureComponent } from './add-lecture/add-lecture.component';
+import { DoctorGuard } from './doctor-login/doctor.guard';
+
+localStorage.getItem('role');
 
 const routes: Routes = [
   { path: '', component: DoctorLoginComponent },
   { path: 'doctor-login', component: DoctorLoginComponent },
   { path: 'doctor-register', component: DoctorRegisterComponent },
-
- 
   {
     path: 'doctor-home',
     component: DoctorHomeComponent,
+    canActivate: [DoctorGuard], // Apply guard here
     children: [
       { path: 'courses', component: CoursesComponent },
       { path: 'course-uploads', component: CourseUploadsComponent },
       { path: 'schedule', component: ScheduleComponent },
       { path: 'Student-Enrolled', component: StudentEnrolledComponent },
       { path: 'Add-Lecture', component: AddLectureComponent },
-      
-       
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class DoctorRoutingModule { }
+export class DoctorRoutingModule {}
