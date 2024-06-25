@@ -13,6 +13,20 @@ export class CourseService {
   getAllCourses(): Observable<any> {
     return this.http.get<any>(this.apiUrl + 'Courses');
   }
+  addAnnouncement(title: any, message: any): Observable<any> {
+    const user_Id = localStorage.getItem('user_Id');
+
+    return this.http.post<any>('https://localhost:5001/api/Announcement', {
+      title,
+      message,
+      doctorId: user_Id,
+    });
+  }
+
+  getAnnouncements(): Observable<any> {
+    return this.http.get<any>('https://localhost:5001/api/Announcement');
+  }
+
   getCourses(): Observable<any> {
     const user_Id = localStorage.getItem('user_Id');
     console.log(user_Id);

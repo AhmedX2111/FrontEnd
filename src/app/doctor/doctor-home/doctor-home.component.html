@@ -78,6 +78,19 @@
         >
       </a>
       <a
+        [routerLink]="'announcements'"
+        class="list-group-item list-group-item-action bg-dark text-white"
+      >
+        <span
+          class="menu-collapsed"
+          [ngClass]="{
+            'd-none': isExpanded == false,
+            'd-block': isExpanded == true
+          }"
+          >Announcements</span
+        >
+      </a>
+      <a
         [routerLink]="'Student-Enrolled'"
         class="list-group-item list-group-item-action bg-dark text-white"
       >

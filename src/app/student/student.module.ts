@@ -19,7 +19,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { WeekScheduleComponent } from './week-schedule/week-schedule.component';
 import { CGPACalculatorComponent } from './gpa-cal/gpa.component';
-import { announcementsComponent } from './ANNOUNCEMENTS/announcements.component';
+import { AnnouncementsComponent } from './ANNOUNCEMENTS/announcements.component';
 import { StudentResetComponent } from './student-reset-password/student-reset.component';
 import { StudentConfirmComponent } from './student-confirm-password/student-confirm.component';
 
@@ -35,7 +35,7 @@ import { StudentConfirmComponent } from './student-confirm-password/student-conf
     CourseDetailsComponent,
     WeekScheduleComponent,
     CGPACalculatorComponent,
-    announcementsComponent,
+    AnnouncementsComponent,
     StudentResetComponent,
     StudentConfirmComponent,
   ],

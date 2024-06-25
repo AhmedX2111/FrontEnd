@@ -9,7 +9,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .container {
@@ -24,7 +23,6 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   padding: 30px;
-
 }
 
 .event-title h3 {
@@ -71,16 +69,23 @@ body {
   margin: 0 0 10px;
   transition: color 0.3s ease;
   margin-left: 35px;
-
 }
 
 .singel-event h4:hover {
   color: #ff4500;
-
 }
 
 /* Icons */
 .singel-event i {
   margin-left: 35px;
   color: #ff6347;
+}
+
+/* Message */
+.singel-event p {
+  color: #555;
+  margin: 15px 0 0 35px;
+  /* Add left margin to move the message to the right */
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
 }

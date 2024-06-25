@@ -9,7 +9,7 @@ import { CourseDetailsComponent } from './course-details/course-details.componen
 import { WeekScheduleComponent } from './week-schedule/week-schedule.component';
 import { CGPACalculatorComponent } from './gpa-cal/gpa.component';
 import { StudentGuard } from './login/student.guard';
-import { announcementsComponent } from './ANNOUNCEMENTS/announcements.component';
+import { AnnouncementsComponent } from './ANNOUNCEMENTS/announcements.component';
 import { StudentResetComponent } from './student-reset-password/student-reset.component';
 import { StudentConfirmComponent } from './student-confirm-password/student-confirm.component';
 
@@ -29,7 +29,7 @@ const routes: Routes = [
       { path: 'course-material/:courseId', component: CourseDetailsComponent },
       { path: 'week-schedule', component: WeekScheduleComponent },
       { path: 'gpa-cal', component: CGPACalculatorComponent },
-      { path: 'events', component: announcementsComponent },
+      { path: 'events', component: AnnouncementsComponent },
     ],
   },
 ];

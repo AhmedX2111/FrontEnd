@@ -16,6 +16,7 @@ import { StudentEnrolledComponent } from './student-enrolled/student-enrolled.co
 import { AddLectureComponent } from './add-lecture/add-lecture.component';
 import { DoctorResetComponent } from './doctor-reset-password/doctor-reset.component';
 import { DoctorConfirmComponent } from './doctor-confirm-password/doctor-confirm.component';
+import { AnnouncementsComponent } from './announcements/announcements.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DoctorConfirmComponent } from './doctor-confirm-password/doctor-confirm
     AddLectureComponent,
     DoctorResetComponent,
     DoctorConfirmComponent,
+    AnnouncementsComponent,
   ],
   imports: [
     CommonModule,

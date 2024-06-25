@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <form (ngSubmit)="onSubmit()" #courseForm="ngForm">
+    <div class="mb-3">
+      <label for="title" class="form-label">Announcement Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        [(ngModel)]="model.title"
+        name="title"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="message" class="form-label">Announcement Message</label>
+      <textarea
+        class="form-control"
+        id="message"
+        [(ngModel)]="model.message"
+        name="message"
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

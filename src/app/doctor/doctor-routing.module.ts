@@ -12,6 +12,7 @@ import { AddLectureComponent } from './add-lecture/add-lecture.component';
 import { DoctorGuard } from './doctor-login/doctor.guard';
 import { DoctorResetComponent } from './doctor-reset-password/doctor-reset.component';
 import { DoctorConfirmComponent } from './doctor-confirm-password/doctor-confirm.component';
+import { AnnouncementsComponent } from './announcements/announcements.component';
 
 const routes: Routes = [
   { path: '', component: DoctorLoginComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'schedule', component: ScheduleComponent },
       { path: 'Student-Enrolled', component: StudentEnrolledComponent },
       { path: 'Add-Lecture', component: AddLectureComponent },
+      { path: 'announcements', component: AnnouncementsComponent },
     ],
   },
 ];
