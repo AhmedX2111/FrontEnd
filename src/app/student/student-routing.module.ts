@@ -8,6 +8,7 @@ import { MainComponent } from './main/main.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { WeekScheduleComponent } from './week-schedule/week-schedule.component';
 import { CGPACalculatorComponent } from './gpa-cal/gpa.component';
+import { StudentGuard } from './login/student.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [StudentGuard], // Apply guard here
     children: [
       { path: 'student-course', component: StudentCourseComponent },
       { path: 'main', component: MainComponent },

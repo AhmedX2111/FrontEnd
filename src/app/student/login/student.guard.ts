@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class DoctorGuard implements CanActivate {
+export class StudentGuard implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(
@@ -18,12 +18,13 @@ export class DoctorGuard implements CanActivate {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     const role = localStorage.getItem('role');
+    console.log('here');
     console.log(role);
-    if (role === 'Doctor') {
+    if (role === 'Student') {
       return true;
     } else {
       // Redirect to login or another appropriate page
-      this.router.navigate(['/doctor']);
+      this.router.navigate(['/student']);
       return false;
     }
   }

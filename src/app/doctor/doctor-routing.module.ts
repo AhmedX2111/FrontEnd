@@ -11,8 +11,6 @@ import { StudentEnrolledComponent } from './student-enrolled/student-enrolled.co
 import { AddLectureComponent } from './add-lecture/add-lecture.component';
 import { DoctorGuard } from './doctor-login/doctor.guard';
 
-localStorage.getItem('role');
-
 const routes: Routes = [
   { path: '', component: DoctorLoginComponent },
   { path: 'doctor-login', component: DoctorLoginComponent },
