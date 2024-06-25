@@ -50,6 +50,8 @@ body {
   border: 2px solid #ddd;
   border-radius: 8px;
   transition: background 0.3s ease;
+  padding: 20px;
+  /* Added padding to create space around content */
 }
 
 .singel-event:hover {
@@ -85,7 +87,14 @@ body {
 .singel-event p {
   color: #555;
   margin: 15px 0 0 35px;
-  /* Add left margin to move the message to the right */
   padding-top: 10px;
   border-top: 1px solid #ddd;
+}
+
+/* Doctor Name */
+.singel-event span.doctor-name {
+  margin-left: 35px;
+  /* Adjust the left margin to move the doctor's name to the right */
+  color: #333;
+  /* Adjust color as needed */
 }

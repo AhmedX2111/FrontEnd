@@ -11,14 +11,14 @@
             ><i class="fa fa-calendar"></i>
             {{ formatDate(announcement.createdAt) }}</span
           >
-          <a
+          <a href="#"
             ><h4>{{ announcement.title }}</h4></a
           >
           <span
             ><i class="fa fa-clock-o"></i>
             {{ formatTime(announcement.createdAt) }}</span
           >
-          <span><i class="fa fa-map-marker"></i> Rc Auditorim</span>
+          <span class="doctor-name">Doctor: {{ announcement.doctorName }}</span>
           <p>{{ announcement.message }}</p>
         </div>
       </li>
