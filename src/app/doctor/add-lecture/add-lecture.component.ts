@@ -37,9 +37,9 @@ export class AddLectureComponent {
   loadSchedules(): void {
     this.scheduleService.getSchedules().subscribe((data: DaySchedule[]) => {
       this.lecturesData = {};
-      data.forEach((daySchedule: DaySchedule) => {
+      data.forEach((daySchedule: any) => {
         this.lecturesData[daySchedule.day] = daySchedule.lectures.map(
-          (lecture) => ({
+          (lecture: any) => ({
             id: lecture.id,
             title: lecture.title,
             time: lecture.time,

@@ -4,14 +4,22 @@ import { ScheduleService } from 'src/app/doctor/services/schedule.service';
 @Component({
   selector: 'app-week-schedule',
   templateUrl: './week-schedule.component.html',
-  styleUrls: ['./week-schedule.component.css']
+  styleUrls: ['./week-schedule.component.css'],
 })
 export class WeekScheduleComponent {
-  weekDays: string[] = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  weekDays: string[] = [
+    'Saturday',
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+  ];
   lecturesData: { [key: string]: Lecture[] } = {};
   newLecture: Lecture = { id: 0, title: '', time: '', dayScheduleId: 0 }; // Add a newLecture object
 
-  constructor(private scheduleService: ScheduleService) { }
+  constructor(private scheduleService: ScheduleService) {}
 
   ngOnInit(): void {
     this.loadSchedules();
@@ -21,12 +29,14 @@ export class WeekScheduleComponent {
     this.scheduleService.getSchedules().subscribe((data: DaySchedule[]) => {
       this.lecturesData = {};
       data.forEach((daySchedule: DaySchedule) => {
-        this.lecturesData[daySchedule.day] = daySchedule.lectures.map(lecture => ({
-          id: lecture.id,
-          title: lecture.title,
-          time: lecture.time,
-          dayScheduleId: lecture.dayScheduleId
-        }));
+        this.lecturesData[daySchedule.day] = daySchedule.lectures.map(
+          (lecture) => ({
+            id: lecture.id,
+            title: lecture.title,
+            time: lecture.time,
+            dayScheduleId: lecture.dayScheduleId,
+          })
+        );
       });
     });
   }
@@ -50,7 +60,7 @@ export class WeekScheduleComponent {
     });
   }
 }
- 
+
 export interface Lecture {
   id: number;
   title: string;
