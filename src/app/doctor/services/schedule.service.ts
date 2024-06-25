@@ -1,25 +1,37 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs'; 
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ScheduleService {
- 
   private apiUrl = 'https://localhost:5001/api/schedule';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getSchedules(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}?id=${localStorage.getItem("user_Id")}`);
+    return this.http.get<any>(
+      `${this.apiUrl}?id=${localStorage.getItem('user_Id')}`
+    );
   }
   addLecture(lecture: Lecture): Observable<Lecture> {
-    return this.http.post<Lecture>(`${this.apiUrl}/addLecture`, lecture);
+    return this.http.post<Lecture>(
+      `https://localhost:5001/api/Schedule/addLecture`,
+      {
+        id: lecture.id,
+        title: lecture.title,
+        time: lecture.time,
+        dayScheduleId: lecture.dayScheduleId,
+      }
+    );
   }
 
   updateLecture(lecture: Lecture): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/updateLecture/${lecture.id}`, lecture);
+    return this.http.put<void>(
+      `${this.apiUrl}/updateLecture/${lecture.id}`,
+      lecture
+    );
   }
 
   deleteLecture(id: number): Observable<void> {
@@ -33,4 +45,3 @@ export interface Lecture {
   time: string;
   dayScheduleId: number;
 }
-

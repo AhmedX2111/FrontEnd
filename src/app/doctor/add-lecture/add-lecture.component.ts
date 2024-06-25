@@ -5,14 +5,30 @@ import { ScheduleService } from '../services/schedule.service';
 @Component({
   selector: 'app-add-lecture',
   templateUrl: './add-lecture.component.html',
-  styleUrls: ['./add-lecture.component.css']
+  styleUrls: ['./add-lecture.component.css'],
 })
 export class AddLectureComponent {
-  weekDays: string[] = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  weekDays: string[] = [
+    'Saturday',
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+  ];
   lecturesData: { [key: string]: Lecture[] } = {};
-  newLecture: Lecture = { id: 0, title: '', time: '', dayScheduleId: 0 , doctorId : localStorage.getItem("user_Id") !== null ? +localStorage.getItem("user_Id")! : 0}; // Add a newLecture object
-
-  constructor(private scheduleService: ScheduleService) { }
+  newLecture: Lecture = {
+    id: 0,
+    title: '',
+    time: '',
+    dayScheduleId: 0,
+    doctorId:
+      localStorage.getItem('user_Id') !== null
+        ? +localStorage.getItem('user_Id')!
+        : 0,
+  }; // Add a newLecture object
+  constructor(private scheduleService: ScheduleService) {}
 
   ngOnInit(): void {
     this.loadSchedules();
@@ -22,19 +38,35 @@ export class AddLectureComponent {
     this.scheduleService.getSchedules().subscribe((data: DaySchedule[]) => {
       this.lecturesData = {};
       data.forEach((daySchedule: DaySchedule) => {
-        this.lecturesData[daySchedule.day] = daySchedule.lectures.map(lecture => ({
-          id: lecture.id,
-          title: lecture.title,
-          time: lecture.time,
-          dayScheduleId: lecture.dayScheduleId
-        }));
+        this.lecturesData[daySchedule.day] = daySchedule.lectures.map(
+          (lecture) => ({
+            id: lecture.id,
+            title: lecture.title,
+            time: lecture.time,
+            dayScheduleId: lecture.dayScheduleId,
+          })
+        );
       });
     });
   }
 
   addLecture(): void {
+    console.log(this.newLecture);
     this.scheduleService.addLecture(this.newLecture).subscribe(() => {
-      this.loadSchedules();
+      this.scheduleService.getSchedules().subscribe((data: DaySchedule[]) => {
+        this.lecturesData = {};
+        data.forEach((daySchedule: DaySchedule) => {
+          this.lecturesData[daySchedule.day] = daySchedule.lectures.map(
+            (lecture) => ({
+              id: lecture.id,
+              title: lecture.title,
+              time: lecture.time,
+              dayScheduleId: lecture.dayScheduleId,
+            })
+          );
+        });
+      });
+
       this.newLecture = { id: 0, title: '', time: '', dayScheduleId: 0 }; // Reset newLecture
     });
   }
@@ -51,13 +83,13 @@ export class AddLectureComponent {
     });
   }
 }
- 
+
 export interface Lecture {
   id: number;
   title: string;
   time: string;
   dayScheduleId: number;
-  doctorId? : number;
+  doctorId?: number;
 }
 export interface DaySchedule {
   day: string;
