@@ -2,19 +2,45 @@
   <form (ngSubmit)="onSubmit()" #courseForm="ngForm">
     <div class="mb-3">
       <label for="courseName" class="form-label">Course Name</label>
-      <input type="text" class="form-control" id="courseName" [(ngModel)]="model.courseName" name="courseName" required>
+      <input
+        type="text"
+        class="form-control"
+        id="courseName"
+        [(ngModel)]="model.courseName"
+        name="courseName"
+        required
+      />
     </div>
     <div class="mb-3">
       <label for="LevelId" class="form-label">Level Id</label>
-      <input type="number" class="form-control" id="LevelId" [(ngModel)]="model.LevelId" name="LevelId" required>
+      <input
+        type="number"
+        class="form-control"
+        id="LevelId"
+        [(ngModel)]="model.LevelId"
+        name="LevelId"
+        required
+      />
     </div>
     <div class="mb-3">
       <label for="semesterId" class="form-label">Semester ID</label>
-      <input type="number" class="form-control" id="semesterId" [(ngModel)]="model.semesterId" name="semesterId" required>
+      <input
+        type="number"
+        class="form-control"
+        id="semesterId"
+        [(ngModel)]="model.semesterId"
+        name="semesterId"
+        required
+      />
     </div>
     <div class="mb-3">
       <label for="image" class="form-label">Course Image</label>
-      <input type="file" class="form-control" id="image" (change)="onFileChange($event)">
+      <input
+        type="file"
+        class="form-control"
+        id="image"
+        (change)="onFileChange($event)"
+      />
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
@@ -35,14 +61,27 @@
         <td>{{ course.courseName }}</td>
         <td>
           {{ course.courseCode }}
-          <button class="btn btn-info btn-sm" (click)="copyCourseCode(course.courseCode)"><mat-icon>content_copy</mat-icon></button>
+          <button
+            class="btn btn-info btn-sm"
+            (click)="copyCourseCode(course.courseCode)"
+          >
+            <mat-icon>content_copy</mat-icon>
+          </button>
         </td>
-        <td><img [src]="'data:image/png;base64,' + course.imageBin" class="img-thumbnail" width="80"></td>
         <td>
-          <button class="btn btn-primary btn-sm me-2" (click)="editCourse(course)"><mat-icon>edit</mat-icon></button>
-
-          
-          <button class="btn btn-danger btn-sm" (click)="deleteCourse(course.id)"><mat-icon>delete</mat-icon></button>
+          <img
+            [src]="'data:image/png;base64,' + course.imageBin"
+            class="img-thumbnail"
+            width="80"
+          />
+        </td>
+        <td>
+          <button
+            class="btn btn-danger btn-sm"
+            (click)="deleteCourse(course.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
         </td>
       </tr>
     </tbody>
