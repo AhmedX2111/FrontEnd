@@ -10,11 +10,15 @@ import { StudentCourseComponent } from '../student/student-course/student-course
 import { StudentEnrolledComponent } from './student-enrolled/student-enrolled.component';
 import { AddLectureComponent } from './add-lecture/add-lecture.component';
 import { DoctorGuard } from './doctor-login/doctor.guard';
+import { DoctorResetComponent } from './doctor-reset-password/doctor-reset.component';
+import { DoctorConfirmComponent } from './doctor-confirm-password/doctor-confirm.component';
 
 const routes: Routes = [
   { path: '', component: DoctorLoginComponent },
   { path: 'doctor-login', component: DoctorLoginComponent },
   { path: 'doctor-register', component: DoctorRegisterComponent },
+  { path: 'reset', component: DoctorResetComponent },
+  { path: 'confirm-password', component: DoctorConfirmComponent },
   {
     path: 'doctor-home',
     component: DoctorHomeComponent,
