@@ -1,29 +1,41 @@
-import { HttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ChatbotService {
-  private accessToken = '3796899bd37c423bad3a21a25277bce0';
-  private baseUrl = 'https://api.api.ai/api/query?v=2015091001';
-  private sessionId = '20150910';
+  private apiUrl = 'https://localhost:5001/api/ChatPot'; // Adjust URL as per your API endpoint
 
-  constructor(private http:HttpClient   ) { }
+  constructor(private http: HttpClient) {}
 
-  sendMessage(text: string) {
-    const payload = { message: text };
-    return this.http.post<any>('http://127.0.0.1:5000/chat', payload)
-      .toPromise()
-      .then(response => {
-        console.log(response.response)
-        return response.response;
-        
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        throw error;
-      });
+  sendMessage(text: string): Observable<any> {
+    const payload = { promptStr: text };
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    return this.http
+      .post<any>(this.apiUrl, payload, { headers })
+      .pipe(catchError(this.handleError));
   }
-  
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong.
+      console.error(
+        `Backend returned code ${error.status}, ` + `body was: ${error.error}`
+      );
+    }
+    // Return an observable with a user-facing error message.
+    return throwError('Something bad happened; please try again later.');
+  }
 }
