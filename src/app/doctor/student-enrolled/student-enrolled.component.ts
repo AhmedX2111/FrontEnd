@@ -29,6 +29,7 @@ export class StudentEnrolledComponent {
         .getStudentsByCourseId(this.selectedCourseId)
         .subscribe((s) => {
           this.studentCourses = s;
+          console.log(s);
         });
     } else {
       this.studentCourses = [];
