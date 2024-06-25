@@ -20,16 +20,14 @@
       <tr>
         <th>Student ID</th>
         <th>Student Name</th>
-        <th>Course Name</th>
         <th>Grade</th>
         <th>Update Grade</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let s of studentCourses">
-        <td>{{ s.studentId }}</td>
-        <td>{{ s.studentName }}</td>
-        <td>{{ s.courseName }}</td>
+        <td>{{ s.id }}</td>
+        <td>{{ s.fullName }}</td>
         <td>{{ s.grade }}</td>
         <td>
           <input

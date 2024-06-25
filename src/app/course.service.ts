@@ -48,9 +48,10 @@ export class CourseService {
     );
   }
   getStudentsByCourseId(courseId: number): Observable<any[]> {
-    return this.http.get<any[]>(
-      this.apiUrl + `Courses/GetAllStudentsByCourseId/${courseId}`
-    );
+    return this.http.get<any[]>(this.apiUrl + `Courses/students/${courseId}`);
+    {
+      courseId;
+    }
   }
   updateGrade(updateGradeDto: {
     studentId: number;
