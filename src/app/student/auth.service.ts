@@ -67,13 +67,13 @@ export class AuthService {
 
   DoctorReset(email: any) {
     return this.http.post(
-      'https://localhost:5001/api/ResetPassword/forget/doctor',
+      'https://localhost:5001/api/ResetPassword/forget/student',
       { email }
     );
   }
 
   confirmPassword(token: any, password: any) {
-    return this.http.post('https://localhost:5001/api/ResetPassword/doctor', {
+    return this.http.post('https://localhost:5001/api/ResetPassword/student', {
       password,
       token: token.split(' ').join(''),
     });

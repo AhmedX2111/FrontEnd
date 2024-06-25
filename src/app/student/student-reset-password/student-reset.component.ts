@@ -3,11 +3,11 @@ import { AuthService } from 'src/app/student/auth.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-doctor-reset',
-  templateUrl: './doctor-reset.component.html',
-  styleUrls: ['./doctor-reset.component.css'],
+  selector: 'app-student-reset',
+  templateUrl: './student-reset.component.html',
+  styleUrls: ['./student-reset.component.css'],
 })
-export class DoctorResetComponent {
+export class StudentResetComponent {
   email: string = '';
 
   constructor(private ser: AuthService) {}

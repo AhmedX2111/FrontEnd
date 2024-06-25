@@ -20,6 +20,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { WeekScheduleComponent } from './week-schedule/week-schedule.component';
 import { CGPACalculatorComponent } from './gpa-cal/gpa.component';
 import { announcementsComponent } from './ANNOUNCEMENTS/announcements.component';
+import { StudentResetComponent } from './student-reset-password/student-reset.component';
+import { StudentConfirmComponent } from './student-confirm-password/student-confirm.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { announcementsComponent } from './ANNOUNCEMENTS/announcements.component'
     WeekScheduleComponent,
     CGPACalculatorComponent,
     announcementsComponent,
+    StudentResetComponent,
+    StudentConfirmComponent,
   ],
   imports: [
     CommonModule,

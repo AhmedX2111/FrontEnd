@@ -10,11 +10,15 @@ import { WeekScheduleComponent } from './week-schedule/week-schedule.component';
 import { CGPACalculatorComponent } from './gpa-cal/gpa.component';
 import { StudentGuard } from './login/student.guard';
 import { announcementsComponent } from './ANNOUNCEMENTS/announcements.component';
+import { StudentResetComponent } from './student-reset-password/student-reset.component';
+import { StudentConfirmComponent } from './student-confirm-password/student-confirm.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'reset', component: StudentResetComponent },
+  { path: 'confirm-password', component: StudentConfirmComponent },
   {
     path: 'home',
     component: HomeComponent,
