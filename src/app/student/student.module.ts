@@ -19,6 +19,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { WeekScheduleComponent } from './week-schedule/week-schedule.component';
 import { CGPACalculatorComponent } from './gpa-cal/gpa.component';
+import { announcementsComponent } from './ANNOUNCEMENTS/announcements.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CGPACalculatorComponent } from './gpa-cal/gpa.component';
     CourseDetailsComponent,
     WeekScheduleComponent,
     CGPACalculatorComponent,
+    announcementsComponent,
   ],
   imports: [
     CommonModule,
