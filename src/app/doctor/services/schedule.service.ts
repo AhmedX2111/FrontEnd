@@ -23,6 +23,7 @@ export class ScheduleService {
         title: lecture.title,
         time: lecture.time,
         dayScheduleId: lecture.dayScheduleId,
+        doctorId: lecture.doctorId,
       }
     );
   }
@@ -44,4 +45,5 @@ export interface Lecture {
   title: string;
   time: string;
   dayScheduleId: number;
+  doctorId?: any;
 }

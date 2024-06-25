@@ -18,7 +18,7 @@ export class AddLectureComponent {
     'Friday',
   ];
   lecturesData: { [key: string]: Lecture[] } = {};
-  newLecture: Lecture = {
+  newLecture: any = {
     id: 0,
     title: '',
     time: '',
@@ -71,7 +71,7 @@ export class AddLectureComponent {
     });
   }
 
-  updateLecture(lecture: Lecture): void {
+  updateLecture(lecture: any): void {
     this.scheduleService.updateLecture(lecture).subscribe(() => {
       this.loadSchedules();
     });
