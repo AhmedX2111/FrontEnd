@@ -39,7 +39,7 @@ export class CoursesComponent {
     }
 
 
-
+    formData.append('doctorId', localStorage.getItem('user_Id')?? "");
     this.coursesService.addCourse(formData).subscribe(() => {
       this.loadCourses(); // Reload the list
     });
