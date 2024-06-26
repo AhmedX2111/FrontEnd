@@ -16,7 +16,7 @@ export class AddLectureComponent {
     'Thursday',
     'Friday',
   ];
-  lecturesData: any = {};
+  lectures: any[] = [];
   newLecture: any = {
     id: 0,
     title: '',
@@ -36,10 +36,8 @@ export class AddLectureComponent {
 
   loadSchedules(): void {
     this.scheduleService.getSchedules().subscribe((lectures: any[]) => {
-      // Clear existing lecturesData
-      this.lecturesData = { time: 1 };
+      this.lectures = lectures;
       console.log(lectures);
-      // Group lectures by day
     });
   }
 
@@ -52,8 +50,9 @@ export class AddLectureComponent {
         time: '',
         dayScheduleId: 0,
         doctorId: 0,
-      }; // Reset newLecture
+      };
     });
+    window.location.reload();
   }
 
   updateLecture(lecture: any): void {

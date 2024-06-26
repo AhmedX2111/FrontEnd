@@ -1,69 +1,66 @@
-<div class="container mt-5">
-  <h3 class="text-center mb-4">Add Lecture</h3>
-  <form (ngSubmit)="addLecture()" class="form-inline justify-content-center">
-    <div class="form-group mb-2">
-      <label for="day" class="mr-2">Day:</label>
+<div class="container">
+  <h2 class="header">Weekly Schedule</h2>
+
+  <div class="schedule-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Time</th>
+          <th>Title</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let lecture of lectures">
+          <td>{{ weekDays[lecture.dayScheduleId] }}</td>
+          <td>{{ lecture.time }}</td>
+          <td>{{ lecture.title }}</td>
+          <td>
+            <button class="btn-update" (click)="updateLecture(lecture)">
+              Update
+            </button>
+            <button class="btn-delete" (click)="deleteLecture(lecture.id)">
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="subheader">Add New Lecture</h3>
+  <form class="add-form" (submit)="addLecture()">
+    <div class="form-group">
+      <label>Day:</label>
       <select
-        class="form-control mr-2"
+        class="form-control"
         [(ngModel)]="newLecture.dayScheduleId"
-        name="day"
+        name="dayScheduleId"
       >
-        <option *ngFor="let day of weekDays; let i = index" [value]="i + 1">
+        <option *ngFor="let day of weekDays; let i = index" [value]="i">
           {{ day }}
         </option>
       </select>
     </div>
-    <div class="form-group mb-2">
-      <label for="title" class="mr-2">Title:</label>
+    <div class="form-group">
+      <label>Time:</label>
       <input
         type="text"
-        class="form-control mr-2"
-        [(ngModel)]="newLecture.title"
-        name="title"
-      />
-    </div>
-    <div class="form-group mb-2">
-      <label for="time" class="mr-2">Time:</label>
-      <input
-        type="text"
-        class="form-control mr-2"
+        class="form-control"
         [(ngModel)]="newLecture.time"
         name="time"
       />
     </div>
-    <button type="submit" class="btn btn-primary mb-2">Add</button>
-  </form>
-</div>
-
-<h2 class="text-center mb-4">Week Schedule Calendar</h2>
-<div class="row">
-  <div class="col-md-6" *ngFor="let day of weekDays">
-    <div class="card mb-4">
-      <div class="card-header">
-        {{ day }}
-      </div>
-      <div class="card-body">
-        <div class="lecture mb-3 p-3" *ngFor="let lecture of lecturesData[day]">
-          <div class="d-flex justify-content-between align-items-center">
-            <span class="lecture-time">{{ lecture.time }}</span>
-            {{ lecture.title }}
-            <div>
-              <button
-                class="btn btn-danger btn-sm mr-2"
-                (click)="deleteLecture(lecture.id)"
-              >
-                Delete
-              </button>
-              <button
-                class="btn btn-warning btn-sm"
-                (click)="updateLecture(lecture)"
-              >
-                Update
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="form-group">
+      <label>Title:</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="newLecture.title"
+        name="title"
+      />
     </div>
-  </div>
+    <button type="submit" class="btn-add">Add Lecture</button>
+  </form>
 </div>
